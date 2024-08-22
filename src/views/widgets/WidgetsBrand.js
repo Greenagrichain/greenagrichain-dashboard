@@ -2,7 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { CWidgetStatsD, CRow, CCol } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cibFacebook, cibLinkedin, cibTwitter, cilCalendar } from '@coreui/icons'
+import {
+  cibFacebook,
+  cibLinkedin,
+  cilCash,
+  cilCalendar,
+  cilMoney,
+  cilDollar,
+  cilGraph,
+  cilChartLine,
+  cilCreditCard,
+  cilBank,
+  cilArrowThickFromBottom,
+} from '@coreui/icons'
 import { CChart } from '@coreui/react-chartjs'
 
 const WidgetsBrand = (props) => {
@@ -36,7 +48,7 @@ const WidgetsBrand = (props) => {
 
   return (
     <CRow className={props.className} xs={{ gutter: 4 }}>
-      <CCol sm={6} xl={4} xxl={3}>
+      <CCol sm={6} xl={6} xxl={3}>
         <CWidgetStatsD
           {...(props.withCharts && {
             chart: (
@@ -47,11 +59,11 @@ const WidgetsBrand = (props) => {
                   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                   datasets: [
                     {
-                      backgroundColor: 'rgba(255,255,255,.1)',
+                      backgroundColor: 'rgba(255,255,255,.3)',
                       borderColor: 'rgba(255,255,255,.55)',
                       pointHoverBackgroundColor: '#fff',
                       borderWidth: 2,
-                      data: [65, 59, 84, 84, 51, 55, 40],
+                      data: [40, 55, 51, 65, 59, 84, 84],
                       fill: true,
                     },
                   ],
@@ -60,23 +72,24 @@ const WidgetsBrand = (props) => {
               />
             ),
           })}
-          icon={<CIcon icon={cibFacebook} height={52} className="my-4 text-white" />}
+          icon={<CIcon icon={cilChartLine} height={52} className="my-4 text-white" />}
           values={[
-            { title: 'friends', value: '89K' },
-            { title: 'feeds', value: '459' },
+            { title: 'Amount Invested', value: '$89,589' },
+            { title: 'Total Earned', value: '$14,325' },
           ]}
           style={{
-            '--cui-card-cap-bg': '#3b5998',
+            // '--cui-card-cap-bg': '#3b5998',
+            '--cui-card-cap-bg': 'var(--primary-dark)',
           }}
         />
       </CCol>
-      <CCol sm={6} xl={4} xxl={3}>
+      <CCol sm={3} xl={3} xxl={2}>
         <CWidgetStatsD
           {...(props.withCharts && {
             chart: (
               <CChart
                 className="position-absolute w-100 h-100"
-                type="line"
+                type="doughnut"
                 data={{
                   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                   datasets: [
@@ -85,7 +98,8 @@ const WidgetsBrand = (props) => {
                       borderColor: 'rgba(255,255,255,.55)',
                       pointHoverBackgroundColor: '#fff',
                       borderWidth: 2,
-                      data: [1, 13, 9, 17, 34, 41, 38],
+                      // data: [1, 13, 9, 17, 34, 41, 38],
+                      data: [3, 6, 3, 5, 4, 6, 7],
                       fill: true,
                     },
                   ],
@@ -94,23 +108,21 @@ const WidgetsBrand = (props) => {
               />
             ),
           })}
-          icon={<CIcon icon={cibTwitter} height={52} className="my-4 text-white" />}
-          values={[
-            { title: 'followers', value: '973k' },
-            { title: 'tweets', value: '1.792' },
-          ]}
+          icon={<CIcon icon={cilDollar} height={52} className="my-4 text-white" />}
+          values={[{ title: 'Total Balance', value: '$97,000' }]}
           style={{
-            '--cui-card-cap-bg': '#00aced',
+            // '--cui-card-cap-bg': '#00aced',
+            '--cui-card-cap-bg': '#065f46',
           }}
         />
       </CCol>
-      <CCol sm={6} xl={4} xxl={3}>
+      <CCol sm={3} xl={3} xxl={2}>
         <CWidgetStatsD
           {...(props.withCharts && {
             chart: (
               <CChart
                 className="position-absolute w-100 h-100"
-                type="line"
+                type="bar"
                 data={{
                   labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                   datasets: [
@@ -119,7 +131,8 @@ const WidgetsBrand = (props) => {
                       borderColor: 'rgba(255,255,255,.55)',
                       pointHoverBackgroundColor: '#fff',
                       borderWidth: 2,
-                      data: [78, 81, 80, 45, 34, 12, 40],
+                      // data: [1, 13, 9, 17, 34, 41, 38],
+                      data: [3, 6, 3, 15, 4, 6, 7],
                       fill: true,
                     },
                   ],
@@ -128,46 +141,12 @@ const WidgetsBrand = (props) => {
               />
             ),
           })}
-          icon={<CIcon icon={cibLinkedin} height={52} className="my-4 text-white" />}
-          values={[
-            { title: 'contacts', value: '500' },
-            { title: 'feeds', value: '1.292' },
-          ]}
+          icon={<CIcon icon={cilArrowThickFromBottom} height={52} className="my-4 text-white" />}
+          values={[{ title: 'Total Withdrawals', value: '$254' }]}
           style={{
-            '--cui-card-cap-bg': '#4875b4',
+            // '--cui-card-cap-bg': '#00aced',
+            '--cui-card-cap-bg': 'var(--primary-light)',
           }}
-        />
-      </CCol>
-      <CCol sm={6} xl={4} xxl={3}>
-        <CWidgetStatsD
-          color="warning"
-          {...(props.withCharts && {
-            chart: (
-              <CChart
-                className="position-absolute w-100 h-100"
-                type="line"
-                data={{
-                  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-                  datasets: [
-                    {
-                      backgroundColor: 'rgba(255,255,255,.1)',
-                      borderColor: 'rgba(255,255,255,.55)',
-                      pointHoverBackgroundColor: '#fff',
-                      borderWidth: 2,
-                      data: [35, 23, 56, 22, 97, 23, 64],
-                      fill: true,
-                    },
-                  ],
-                }}
-                options={chartOptions}
-              />
-            ),
-          })}
-          icon={<CIcon icon={cilCalendar} height={52} className="my-4 text-white" />}
-          values={[
-            { title: 'events', value: '12+' },
-            { title: 'meetings', value: '4' },
-          ]}
         />
       </CCol>
     </CRow>

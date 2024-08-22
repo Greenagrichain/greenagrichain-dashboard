@@ -18,11 +18,11 @@ import { cilLockLocked, cilUser } from '@coreui/icons'
 
 const Login = () => {
   return (
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
+    <div className="bg-primary-light/40 min-vh-100 d-flex flex-row align-items-center py-8">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={8}>
-            <CCardGroup>
+            <CCardGroup className="flex flex-wrap *:grow *:!min-w-56">
               <CCard className="p-4">
                 <CCardBody>
                   <CForm>
@@ -46,9 +46,11 @@ const Login = () => {
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
-                          Login
-                        </CButton>
+                        <Link to="/dashboard">
+                          <CButton className="px-4 text-white hover:!bg-primary-dark !bg-primary-light">
+                            Login
+                          </CButton>
+                        </Link>
                       </CCol>
                       <CCol xs={6} className="text-right">
                         <CButton color="link" className="px-0">
@@ -59,16 +61,23 @@ const Login = () => {
                   </CForm>
                 </CCardBody>
               </CCard>
-              <CCard className="text-white bg-primary py-5" style={{ width: '44%' }}>
+              <CCard
+                className="text-white !bg-primary-light py-5 bg-[url('/greenagrichain-logo.png')] bg-cover bg-center bg-blend-darken"
+                style={{ width: '44%' }}
+              >
                 <CCardBody className="text-center">
                   <div>
                     <h2>Sign up</h2>
                     <p>
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                      tempor incididunt ut labore et dolore magna aliqua.
+                      Join our community and access exclusive insights and opportunities in
+                      sustainable agriculture. Your journey toward making an impact starts here.
                     </p>
                     <Link to="/register">
-                      <CButton color="primary" className="mt-3" active tabIndex={-1}>
+                      <CButton
+                        className="mt-3 !bg-primary-dark text-white hover:scale-105 active:scale-95 !transition"
+                        active
+                        tabIndex={-1}
+                      >
                         Register Now!
                       </CButton>
                     </Link>

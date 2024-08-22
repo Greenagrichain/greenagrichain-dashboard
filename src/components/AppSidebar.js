@@ -13,8 +13,9 @@ import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
 
-import { logo } from 'src/assets/brand/logo'
-import { sygnet } from 'src/assets/brand/sygnet'
+// import { logo } from 'src/assets/brand/logo'
+// import { sygnet } from 'src/assets/brand/sygnet'
+import logo from '/greenagrichain-logo.png'
 
 // sidebar nav config
 import navigation from '../_nav'
@@ -27,7 +28,7 @@ const AppSidebar = () => {
   return (
     <CSidebar
       className="border-end"
-      colorScheme="dark"
+      colorScheme="light"
       position="fixed"
       unfoldable={unfoldable}
       visible={sidebarShow}
@@ -35,10 +36,11 @@ const AppSidebar = () => {
         dispatch({ type: 'set', sidebarShow: visible })
       }}
     >
-      <CSidebarHeader className="border-bottom">
+      <CSidebarHeader className="border-bottom justify-content-center py-0">
         <CSidebarBrand to="/">
-          <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
-          <CIcon customClassName="sidebar-brand-narrow" icon={sygnet} height={32} />
+          {/* <CIcon customClassName="sidebar-brand-full" icon={logo} height={32} />
+          <CIcon customClassName="sidebar-brand-narrow" icon={logo} height={32} /> */}
+          <img src={logo} alt="logo" height="192" width="192" />
         </CSidebarBrand>
         <CCloseButton
           className="d-lg-none"

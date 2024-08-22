@@ -10,21 +10,30 @@ import {
   CInputGroup,
   CInputGroupText,
   CRow,
+  CLink,
 } from '@coreui/react'
+
+import logo from '/greenagrichain-logo.png'
+import { Link } from 'react-router-dom'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilUser, cilPhone } from '@coreui/icons'
 
 const Register = () => {
   return (
-    <div className="bg-body-tertiary min-vh-100 d-flex flex-row align-items-center">
+    <div className="bg-primary-light/40 min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
         <CRow className="justify-content-center">
           <CCol md={9} lg={7} xl={6}>
             <CCard className="mx-4">
               <CCardBody className="p-4">
                 <CForm>
-                  <h1>Register</h1>
-                  <p className="text-body-secondary">Create your account</p>
+                  <div className="form-head flex justify-between items-center">
+                    <div className="form-head-content">
+                      <h1>Register</h1>
+                      <p className="text-body-secondary">Create your account</p>
+                    </div>
+                    <img src={logo} alt="Logo" width={96} height={96} />
+                  </div>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
@@ -34,6 +43,12 @@ const Register = () => {
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
                     <CFormInput placeholder="Email" autoComplete="email" />
+                  </CInputGroup>
+                  <CInputGroup className="mb-3">
+                    <CInputGroupText>
+                      <CIcon icon={cilPhone} />
+                    </CInputGroupText>
+                    <CFormInput type="phone" placeholder="eg +12345678999" autoComplete="phone" />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
@@ -55,8 +70,15 @@ const Register = () => {
                       autoComplete="new-password"
                     />
                   </CInputGroup>
-                  <div className="d-grid">
-                    <CButton color="success">Create Account</CButton>
+                  <div className="d-grid space-y-2">
+                    <Link to="/dashboard">
+                      <CButton className="!bg-primary-light hover:scale-105 !transition text-white">
+                        Create Account
+                      </CButton>
+                    </Link>
+                    <CLink as={Link} to="/login">
+                      Already have an account? Sign in.
+                    </CLink>
                   </div>
                 </CForm>
               </CCardBody>
